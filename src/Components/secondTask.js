@@ -1,7 +1,7 @@
-import "./task.css";
+import "./secondTask.css";
 import React, { useState } from "react";
 
-function Task() {
+function TaskSecond() {
     const [task, setTask] = useState("");
     const [taskList, setTaskList] = useState([]);
 
@@ -17,10 +17,6 @@ function Task() {
 
         setTask("");
     };
-    function Remover(id) {
-        const filteredArray = taskList.filter((newItem) => newItem.id !== id);
-        setTaskList(filteredArray);
-    }
 
     return (
         <div>
@@ -40,7 +36,10 @@ function Task() {
                     {item.element}
                     <button
                         onClick={() => {
-                            Remover(item.id);
+                            const filteredArray = taskList.filter(
+                                (e) => e.id !== item.id
+                            );
+                            setTaskList(filteredArray);
                         }}>
                         delete
                     </button>
@@ -50,4 +49,4 @@ function Task() {
     );
 }
 
-export default Task;
+export default TaskSecond;

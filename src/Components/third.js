@@ -1,7 +1,8 @@
-import "./task.css";
+import "./third.css";
 import React, { useState } from "react";
+import Templet from "./templet";
 
-function Task() {
+function TaskThird() {
     const [task, setTask] = useState("");
     const [taskList, setTaskList] = useState([]);
 
@@ -17,10 +18,11 @@ function Task() {
 
         setTask("");
     };
-    function Remover(id) {
-        const filteredArray = taskList.filter((newItem) => newItem.id !== id);
-        setTaskList(filteredArray);
-    }
+
+    const deleteHnadler = (i) => {
+        const filteredTask = taskList.filter((item) => item.id !== i.id);
+        setTaskList(filteredTask);
+    };
 
     return (
         <div>
@@ -36,18 +38,10 @@ function Task() {
                 <button type="submit">Save</button>
             </form>
             {taskList.map((item) => (
-                <li key={item.id} className="task">
-                    {item.element}
-                    <button
-                        onClick={() => {
-                            Remover(item.id);
-                        }}>
-                        delete
-                    </button>
-                </li>
+                <Templet key={item.id} task={item} click={deleteHnadler} />
             ))}
         </div>
     );
 }
 
-export default Task;
+export default TaskThird;

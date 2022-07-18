@@ -1,9 +1,10 @@
 import "./App.css";
-import Task from "./Components/task";
+import TaskThird from "./Components/third";
+
 function App() {
     return (
         <div className="App">
-            <Task />
+            <TaskThird />
         </div>
     );
 }
