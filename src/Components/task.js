@@ -39,6 +39,7 @@ function Task() {
                 <li key={item.id} className="task">
                     {item.element}
                     <button
+                        className="btn"
                         onClick={() => {
                             Remover(item.id);
                         }}>

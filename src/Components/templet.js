@@ -1,16 +1,25 @@
 import React from "react";
 import "./templet.css";
 
-function Templet({ task, click }) {
-    function removeHandler() {
+function Templet(props) {
+    const { task, click, edit } = props;
+
+    const removeHandler = () => {
         click(task);
-    }
+    };
+
+    const editHandling = () => {
+        edit(task);
+    };
 
     return (
         <div className="task-list">
             <h2>{task.element}</h2>
             <button onClick={removeHandler} className="btn">
                 Delete
+            </button>
+            <button onClick={editHandling} className="btn">
+                Edit
             </button>
         </div>
     );
