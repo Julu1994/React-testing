@@ -10,14 +10,11 @@ function TaskThird() {
 
     const taskHandler = (event) => {
         event.preventDefault();
-
         const taskObject = {
             id: Math.floor(Math.random() * 500),
             element: task,
         };
-
         setTaskList([...taskList, taskObject]);
-
         setTask("");
     };
 
