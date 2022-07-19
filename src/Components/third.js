@@ -1,5 +1,5 @@
 import "./third.css";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Templet from "./templet";
 import { TextField, Button, Box, Grid } from "@mui/material/";
 import ResponsiveAppBar from "./header";
@@ -23,6 +23,16 @@ function TaskThird() {
         }
         setTask("");
     };
+
+    useEffect(() => {
+        const localStoreData = window.localStorage.getItem("myTask");
+        if (!localStoreData !== null) setTaskList(JSON.parse(localStoreData));
+    }, []);
+
+    useEffect(() => {
+        window.localStorage.setItem("myTask", JSON.stringify(taskList));
+        console.log("hi");
+    }, [taskList]);
 
     const deleteHnadler = (i) => {
         const filteredTask = taskList.filter((item) => item.id !== i.id);
