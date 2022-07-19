@@ -63,14 +63,12 @@ function TaskThird() {
 
     return (
         <Box sx={{ flexGrow: 1 }}>
-            <Grid container spacing={2}>
+            <Grid container spacing={10}>
                 <Grid item xs={12}>
                     <ResponsiveAppBar />
                 </Grid>
-                <Grid item xs={12} className="date-time">
-                    <BasicDateTimePicker />
-                </Grid>
-                <Grid item xs={12}>
+
+                <Grid item xs={12} sm={6} lg={6} sx={{ textAlign: "center" }}>
                     {!edit && (
                         <div>
                             <form className="form" onSubmit={taskHandler}>
@@ -78,7 +76,7 @@ function TaskThird() {
                                     id="outlined-basic"
                                     label="Write your task"
                                     variant="outlined"
-                                    sx={{ width: 200, m: 2 }}
+                                    sx={{ width: 250 }}
                                     value={task}
                                     onChange={(event) =>
                                         setTask(event.target.value)
@@ -87,7 +85,7 @@ function TaskThird() {
                                 <Button
                                     type="submit"
                                     variant="contained"
-                                    sx={{ p: 1.9, width: 120, m: 2 }}>
+                                    sx={{ p: 1.9, width: 120 }}>
                                     Add task
                                 </Button>
                             </form>
@@ -125,6 +123,9 @@ function TaskThird() {
                             </form>
                         </div>
                     )}
+                </Grid>
+                <Grid item xs={12} sm={6} lg={6} sx={{ textAlign: "center" }}>
+                    <BasicDateTimePicker className="date-time" />
                 </Grid>
                 {taskList.map((item) => (
                     <CardBar

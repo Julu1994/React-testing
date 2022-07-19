@@ -1,4 +1,9 @@
 body {
     margin: 0;
-    background-color: rgba(207, 242, 226, 0.574);
+    background: linear-gradient(
+        90deg,
+        rgba(0, 26, 36, 0.16430322128851538) 0%,
+        rgba(9, 121, 15, 0.2987570028011205) 50%,
+        rgba(0, 161, 255, 0.36878501400560226) 99%
+    );
 }
