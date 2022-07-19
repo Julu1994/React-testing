@@ -1,6 +1,6 @@
 import "./third.css";
 import React, { useState, useEffect } from "react";
-import Templet from "./templet";
+import CardBar from "./card";
 import { TextField, Button, Box, Grid } from "@mui/material/";
 import ResponsiveAppBar from "./header";
 
@@ -123,7 +123,7 @@ function TaskThird() {
                     )}
                 </Grid>
                 {taskList.map((item) => (
-                    <Templet
+                    <CardBar
                         key={item.id}
                         task={item}
                         click={deleteHnadler}

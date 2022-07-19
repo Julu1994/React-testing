@@ -1,4 +1,5 @@
 import React from "react";
+import DeleteIcon from "@mui/icons-material/Delete";
 import {
     Grid,
     Card,
@@ -6,10 +7,14 @@ import {
     CardContent,
     Button,
     Typography,
+    IconButton,
+    Tooltip,
+    Checkbox,
 } from "@mui/material";
 
-function Templet(props) {
+function CardBar(props) {
     const { task, click, edit } = props;
+    const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
     const removeHandler = () => {
         click(task);
@@ -24,7 +29,7 @@ function Templet(props) {
             item
             xs={12}
             sm={6}
-            lg={4}
+            lg={3}
             container
             direction="row"
             justifyContent="center"
@@ -35,22 +40,31 @@ function Templet(props) {
                         sx={{ fontSize: 14 }}
                         color="text.secondary"
                         gutterBottom>
-                        Pending Task
+                        My todos
                     </Typography>
 
                     <Typography variant="body2">{task.element}</Typography>
                 </CardContent>
                 <CardActions>
-                    <Button onClick={removeHandler} size="small">
-                        Delete
-                    </Button>
+                    <Tooltip onClick={removeHandler} title="Delete">
+                        <IconButton>
+                            <DeleteIcon />
+                        </IconButton>
+                    </Tooltip>
                     <Button onClick={editHandling} size="small">
                         Edit
                     </Button>
+                    <Checkbox
+                        sx={{
+                            "&:hover": { bgcolor: "transparent" },
+                        }}
+                        color="secondary"
+                        {...label}
+                    />
                 </CardActions>
             </Card>
         </Grid>
     );
 }
 
-export default Templet;
+export default CardBar;
