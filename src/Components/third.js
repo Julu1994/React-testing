@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import CardBar from "./card";
 import { TextField, Button, Box, Grid } from "@mui/material/";
 import ResponsiveAppBar from "./header";
+import BasicDateTimePicker from "./date";
 
 function TaskThird() {
     const [task, setTask] = useState("");
@@ -65,6 +66,9 @@ function TaskThird() {
             <Grid container spacing={2}>
                 <Grid item xs={12}>
                     <ResponsiveAppBar />
+                </Grid>
+                <Grid item xs={12} className="date-time">
+                    <BasicDateTimePicker />
                 </Grid>
                 <Grid item xs={12}>
                     {!edit && (
