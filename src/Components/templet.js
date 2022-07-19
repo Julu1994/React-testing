@@ -1,5 +1,12 @@
 import React from "react";
-import { Grid } from "@mui/material";
+import {
+    Grid,
+    Card,
+    CardActions,
+    CardContent,
+    Button,
+    Typography,
+} from "@mui/material";
 
 function Templet(props) {
     const { task, click, edit } = props;
@@ -22,13 +29,26 @@ function Templet(props) {
             direction="row"
             justifyContent="center"
             alignItems="center">
-            <h2>{task.element}</h2>
-            <button onClick={removeHandler} className="btn">
-                Delete
-            </button>
-            <button onClick={editHandling} className="btn">
-                Edit
-            </button>
+            <Card sx={{ minWidth: 275 }}>
+                <CardContent>
+                    <Typography
+                        sx={{ fontSize: 14 }}
+                        color="text.secondary"
+                        gutterBottom>
+                        Pending Task
+                    </Typography>
+
+                    <Typography variant="body2">{task.element}</Typography>
+                </CardContent>
+                <CardActions>
+                    <Button onClick={removeHandler} size="small">
+                        Delete
+                    </Button>
+                    <Button onClick={editHandling} size="small">
+                        Edit
+                    </Button>
+                </CardActions>
+            </Card>
         </Grid>
     );
 }
