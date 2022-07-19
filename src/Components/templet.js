@@ -1,5 +1,5 @@
 import React from "react";
-import "./templet.css";
+import { Grid } from "@mui/material";
 
 function Templet(props) {
     const { task, click, edit } = props;
@@ -13,7 +13,15 @@ function Templet(props) {
     };
 
     return (
-        <div className="task-list">
+        <Grid
+            item
+            xs={12}
+            sm={6}
+            lg={4}
+            container
+            direction="row"
+            justifyContent="center"
+            alignItems="center">
             <h2>{task.element}</h2>
             <button onClick={removeHandler} className="btn">
                 Delete
@@ -21,7 +29,7 @@ function Templet(props) {
             <button onClick={editHandling} className="btn">
                 Edit
             </button>
-        </div>
+        </Grid>
     );
 }
 

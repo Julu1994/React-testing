@@ -2,6 +2,7 @@ import "./third.css";
 import React, { useState } from "react";
 import Templet from "./templet";
 import { TextField, Button, Box, Grid } from "@mui/material/";
+import ResponsiveAppBar from "./header";
 
 function TaskThird() {
     const [task, setTask] = useState("");
@@ -52,61 +53,65 @@ function TaskThird() {
     return (
         <Box sx={{ flexGrow: 1 }}>
             <Grid container spacing={2}>
-                {!edit && (
-                    <div>
-                        <form className="form" onSubmit={taskHandler}>
-                            <TextField
-                                id="outlined-basic"
-                                label="Write your task"
-                                variant="outlined"
-                                sx={{ width: 200, m: 2 }}
-                                value={task}
-                                onChange={(event) =>
-                                    setTask(event.target.value)
-                                }
-                            />
-                            <Button
-                                type="submit"
-                                variant="contained"
-                                sx={{ p: 1.9, width: 120, m: 2 }}>
-                                Add task
-                            </Button>
-                        </form>
-                    </div>
-                )}
+                <Grid item xs={12}>
+                    <ResponsiveAppBar />
+                </Grid>
+                <Grid item xs={12}>
+                    {!edit && (
+                        <div>
+                            <form className="form" onSubmit={taskHandler}>
+                                <TextField
+                                    id="outlined-basic"
+                                    label="Write your task"
+                                    variant="outlined"
+                                    sx={{ width: 200, m: 2 }}
+                                    value={task}
+                                    onChange={(event) =>
+                                        setTask(event.target.value)
+                                    }
+                                />
+                                <Button
+                                    type="submit"
+                                    variant="contained"
+                                    sx={{ p: 1.9, width: 120, m: 2 }}>
+                                    Add task
+                                </Button>
+                            </form>
+                        </div>
+                    )}
 
-                {edit && (
-                    <div>
-                        <form className="form" onSubmit={saveChange}>
-                            <TextField
-                                id="outlined-basic"
-                                label="Edit the task"
-                                variant="outlined"
-                                value={task}
-                                onChange={(event) =>
-                                    setTask(event.target.value)
-                                }
-                            />
+                    {edit && (
+                        <div>
+                            <form className="form" onSubmit={saveChange}>
+                                <TextField
+                                    id="outlined-basic"
+                                    label="Edit the task"
+                                    variant="outlined"
+                                    value={task}
+                                    onChange={(event) =>
+                                        setTask(event.target.value)
+                                    }
+                                />
 
-                            <Button
-                                type="submit"
-                                variant="contained"
-                                color="secondary">
-                                Save
-                            </Button>
-                            <Button
-                                onClick={() => {
-                                    setEdit(false);
-                                    setTask("");
-                                }}
-                                variant="contained"
-                                color="warning">
-                                Cancel
-                            </Button>
-                        </form>
-                    </div>
-                )}
-
+                                <Button
+                                    type="submit"
+                                    variant="contained"
+                                    color="secondary">
+                                    Save
+                                </Button>
+                                <Button
+                                    onClick={() => {
+                                        setEdit(false);
+                                        setTask("");
+                                    }}
+                                    variant="contained"
+                                    color="warning">
+                                    Cancel
+                                </Button>
+                            </form>
+                        </div>
+                    )}
+                </Grid>
                 {taskList.map((item) => (
                     <Templet
                         key={item.id}
